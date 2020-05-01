@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Buscar Usuarios
+                </h1>
+                <h2 class="subtitle">
+
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container is-fluid">
+        <br>
+        <!--Seletor-->
+        <div class="columns">
+            <div class="column">
+                <section class="selector">
+                    <div class="field">
+
+                        <div class="tabs is-left is-boxed">
+                            <ul>
+                                <li class="is-active">
+                                    <a>
+                                        <span class="icon is-small"><i class="fas fa-user"
+                                                aria-hidden="true"></i></span>
+                                        <span>Usuarios</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="icon is-small"><i class="fas fa-handshake"
+                                                aria-hidden="true"></i></span>
+                                        <span>Parceiros de negocios</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <br>
+        </div>
+
+        <!--Usuarios-->
+
+        <div class="columns is-hidden">
+            <div class="column is-four-fifths">
+
+                <div class="field is-grouped">
+
+
+                    <div class="control">
+
+                        <input class="input" type="text" placeholder="Informe o CPF">
+                    </div>
+                    <div class="control">
+                        <div class="button is-info">enviar</div>
+                    </div>
+                    <div class="control">
+                        <div class="button is-warning">limpar</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="column">
+                <div class="field">
+
+                    teste
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--Parceiros-->
+
+        <div class="columns">
+
+            
+            <div class="column is-four-fifths">
+
+                <div class="field is-grouped">
+
+
+                    <div class="control">
+
+                        <input class="input" type="text" placeholder="Informe CNPJ">
+                    </div>
+
+                    <div class="control">
+                        <div class="select">
+                            <select>
+                                <option>Mecanica</option>
+                                <option>Padaria</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="control">
+                        <div class="button is-info">enviar</div>
+                    </div>
+                    <div class="control">
+                        <div class="button is-warning">limpar</div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <script src="./src/main.js"></script>
+</body>
+
+</html>
