@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -38,15 +39,15 @@
 
                         <div class="tabs is-left is-boxed">
                             <ul>
-                                <li id="users-tab" class="is-active">
-                                    <a id="users-show">
+                                <li id="tabUsers" class="is-active">
+                                    <a id="showUserMenu">
                                         <span class="icon is-small"><i class="fas fa-user"
                                                 aria-hidden="true"></i></span>
                                         <span>Usuarios</span>
                                     </a>
                                 </li>
-                                <li id="jobs-tab">
-                                    <a id="jobs-show">
+                                <li id="tabPartner">
+                                    <a id="showPartnerMenu">
                                         <span class="icon is-small"><i class="fas fa-handshake"
                                                 aria-hidden="true"></i></span>
                                         <span>Parceiros de negocios</span>
@@ -65,26 +66,70 @@
 
         <!--Usuarios-->
 
-        <div id="users-auth" class="columns">
-            <div id="users-results" class="column is-hidden">
-                RESULTADO
+        <div id="columnsUsers" class="columns">
+
+            <div id="colUser" class="column is-hidden">
+
+                <a id="colUserClose" class="delete is-large is-pulled-right"></a>
+
+                <h1 class="title">Dados pessoais:</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>RG</th>
+                            <th>Telefone</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+                        <tr id="tableUser">
+
+                        </tr>
+
+                        <tr>
+                            <th><label>Endereco:</label></th>
+                        </tr>
+                        <tr id="addressUser">
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                    </thead>
+
+                </table>
+
             </div>
 
-            <div id="users-input" class="column is-four-fifths search">
+            <!--Barra de bucar-->
+            <div id="searchBarUser" class="column is-four-fifths search">
 
                 <div class="field is-grouped">
 
-
                     <div class="control">
 
-                        <input id="dataUser-input" class="input" type="text" placeholder="Informe o CPF">
+                        <input id="inputUser" class="input is-info" maxlength="11" type="text"
+                            placeholder="Informe o CPF">
+
                     </div>
                     <div class="control">
-                        <button id="users-buttonSearch" class="button is-info">buscar</button>
+                        <button id="buttonFindUser" class="button is-info">buscar</button>
                     </div>
                     <div class="control">
-                        <div class="button is-warning">limpar</div>
+                        <button class="button is-warning clear-button">limpar</button>
 
+                    </div>
+                    <div class="control">
+                        <span class="tag errorCpf is-danger is-large is-invisible">
+                            é necessario informar o cpf
+
+                        </span>
                     </div>
 
                 </div>
@@ -92,45 +137,82 @@
             </div>
         </div>
 
-
         <!--Parceiros-->
 
-        <div id="jobs-auth" class="columns is-hidden">
-            <div id="jobs-results" class="column is-hidden">
-                RESULTADO
+        <div id="columnsPartner" class="columns is-hidden">
+            <div id="colPartner" class="column is-hidden">
+                <a id="colPartnerClose" class="delete is-large is-pulled-right"></a>
+                
+                <h1 class="title">Dados da empresa:</h1>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th><abbr>Nome</abbr></th>
+                            <th><abbr>Tipo</abbr></th>
+                            <th><abbr>CNPJ</abbr></th>
+                            <th><abbr>Telefone</abbr></th>
+                            <th><abbr>Email</abbr></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="tablePartner">
+
+                        </tr>
+                        <tr>
+                            <th>Endereço:</th>
+                        </tr>
+                        <tr id="addressPartner">
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
             </div>
-            <div id="jobs-input" class="column is-four-fifths">
+            <div id="searchBarPartner" class="column is-four-fifths">
 
                 <div class="field is-grouped">
 
                     <div class="control">
 
-                        <input id="dataJobs-input" class="input" type="text" placeholder="Informe CNPJ">
+                        <input id="inputPartner" class="input" type="text" placeholder="Informe CNPJ">
+
+
                     </div>
 
                     <div class="control">
-                        <div class="select">
+                        <div id="select" class="select">
                             <select>
-                                <option>Mecanica</option>
-                                <option>Padaria</option>
+
                             </select>
                         </div>
 
                     </div>
                     <div class="control">
-                        <button id="jobs-buttonSearch" class="button is-info">buscar</button>
+                        <button id="buttonFindPartner" class="button is-info">buscar</button>
                     </div>
                     <div class="control">
-                        <button class="button is-warning">limpar</button>
+                        <button class="button is-warning clear-button">limpar</button>
 
+                    </div>
+
+                    <div class="control">
+                        <span class="tag errorCnpj is-danger is-medium is-invisible">
+                            é necessario informar o CNPJ e escolher a categoria.
+
+                        </span>
                     </div>
 
                 </div>
 
             </div>
         </div>
+    </div>
 
-        <script src="./src/main.js"></script>
+
+    <script src="./src/main.js"></script>
 </body>
 
 </html>
